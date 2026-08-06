@@ -2,6 +2,7 @@ import { Wrench, ShieldCheck, Heart, Award, Users, Clock, MapPin, ArrowRight, Ch
 import { COMPANY, IMAGES, TEAM, FAQS } from '@/data/site';
 import { Link } from '@/router';
 import { PageHero, SectionHeading, CTASection } from '@/components/ui';
+import { useFaqSchema } from '@/components/SeoSchema';
 
 export function AboutPage() {
   return (
@@ -205,6 +206,7 @@ export function CareersPage() {
 }
 
 export function FaqPage() {
+  useFaqSchema();
   return (
     <>
       <PageHero

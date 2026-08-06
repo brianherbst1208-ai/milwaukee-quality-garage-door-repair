@@ -2,6 +2,7 @@ import { Wrench, Zap, ShieldCheck, ArrowRight, CheckCircle2, Clock, DollarSign, 
 import { SERVICES, COMPANY, IMAGES } from '@/data/site';
 import { Link } from '@/router';
 import { PageHero, SectionHeading, CTASection } from '@/components/ui';
+import { useServiceSchema } from '@/components/SeoSchema';
 
 export function ServicesPage() {
   return (
@@ -83,6 +84,7 @@ export function ServicesPage() {
 
 export function ServiceDetailPage({ slug }: { slug: string }) {
   const service = SERVICES.find((s) => s.slug === slug);
+  useServiceSchema(slug);
 
   if (!service) {
     return (

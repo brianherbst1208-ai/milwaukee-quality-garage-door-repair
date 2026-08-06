@@ -1,6 +1,7 @@
 import { Link } from '@/router';
 import { ChevronRight, Phone } from 'lucide-react';
 import { COMPANY } from '@/data/site';
+import { useBreadcrumbSchema } from '@/components/SeoSchema';
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -11,6 +12,10 @@ interface PageHeroProps {
 }
 
 export function PageHero({ eyebrow, title, subtitle, image, breadcrumb }: PageHeroProps) {
+  useBreadcrumbSchema(
+    (breadcrumb ?? []).map((b) => ({ label: b.label, path: b.to ?? '' })),
+  );
+
   return (
     <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-ink-950">
       {image && (
